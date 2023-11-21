@@ -1,6 +1,7 @@
 <?php
 
 require_once 'src/ProductModel.php';
+require_once 'src/ProductViewHelper.php';
 
 $db = new PDO('mysql:host=db; dbname=dvdcollection', 'root', 'password');
 
@@ -10,8 +11,12 @@ $productModel = new ProductModel($db);
 
 $product = $productModel->getAllDvds();
 
-echo '<pre>';
-var_dump($product);
+$viewHelper = new ProductViewHelper();
+echo $viewHelper->displayAllProducts($product);
 
+echo "hello";
 
+//echo ProductViewHelper::displayAllProducts($product);
 
+// echo '<pre>';
+// var_dump($product);

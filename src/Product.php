@@ -2,6 +2,7 @@
 
 class Product
 {
+    public int $id;
     public string $title;
     public string $description;
     public int $run_time;
@@ -10,6 +11,7 @@ class Product
     public string $image;
 
     public function __construct(
+        int $id,
         string $title,
         string $description,
         int $run_time,
@@ -17,6 +19,7 @@ class Product
         string $starring,
         string $image
     ) {
+        $this->id = $id;
         $this->title = $title;
         $this->description = $description;
         $this->run_time = $run_time;
