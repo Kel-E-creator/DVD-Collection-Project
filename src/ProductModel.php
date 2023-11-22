@@ -71,4 +71,48 @@ class ProductModel
 
         return $existingDvds;
     }
+
+
+    public function addDvd($title, $description, $run_time, $genre, $starring, $image)
+    {
+        $query = $this->db->prepare('INSERT INTO `dvd`
+                (`title`, `description`, `run_time`, `genre_id`, `image`)
+                VALUES (:title, :description, :run_time, :genre_id, :image);'
+        );
+    
+        $query->bindParam(':title', $title);
+        $query->bindParam(':description', $description);
+        $query->bindParam(':run_time', $run_time);
+        $query->bindParam(':genre_id', $genre);
+        $query->bindParam(':image', $image);
+
+        $query->execute();
+
+    }
 }
+
+
+//    // $query = $this->db->prepare('INSERT INTO `actors'
+//                 (`name` || `id`)
+//                 VALUES (:name, :id);
+//         );
+
+//         $query->execute();
+
+//         $query->bindParam(':name', $starring);
+//         $query->bindParam(':starring', $starring);
+//     };
+
+
+//     $query = $this->db->prepare('INSERT INTO `starring'
+//                 (`dvd_id` || `id`)
+//                 VALUES (:dvd_id, :actor_id);
+//         );
+
+//         $query->execute();
+
+//         $query->bindParam(':dvd_id', $dvd_id);
+//         $query->bindParam(':actor_id', $actor_id);
+//     };
+    
+//}

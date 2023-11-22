@@ -1,3 +1,52 @@
+<?php
+
+require_once 'src/ProductModel.php';
+require_once 'src/ProductViewHelper.php';
+
+$db = new PDO('mysql:host=db; dbname=dvdcollection', 'root', 'password');
+
+$db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+
+$productModel = new ProductModel($db);
+
+var_dump($_POST) ;
+
+if (
+    isset($_POST['title']) &&
+    isset($_POST['description']) &&
+    isset($_POST['run_time']) &&
+    isset($_POST['genre']) &&
+    isset($_POST['starring']) &&
+    isset($_POST['image']) 
+) {
+    $title = $_POST['title'];
+    $description = $_POST['description'];
+    $run_time = $_POST['run_time'];
+    $genre = $_POST['genre'];
+    $starring = $_POST['starring'];
+    $image = $_POST['image'];
+
+    echo $title;
+    echo $description;
+    echo $run_time;
+    echo $genre;
+    echo $starring;
+    echo $image;
+
+    $success = $productModel->addDvd($title, $description, $run_time, $genre, $starring, $image);
+
+    if ($success) {
+        echo "Dvd added!";
+    } 
+    else {
+        return "All fields not correctly filled in, please try again";
+    }
+}
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +64,7 @@
         <input type="text" id="description" name="description" />
 
         <label for="run_time">Run Time:</label>
-        <input type="number" id="run_time" name="description" />
+        <input type="number" id="run_time" name="run_time" />
 
         <label for="genre">Genre:</label>
         <select name="genre" id="genre">
@@ -57,28 +106,11 @@
 </body>
 </html>
 
-
-
-
 <?php
 
-require_once 'src/ProductModel.php';
-require_once 'src/ProductViewHelper.php';
-
-$db = new PDO('mysql:host=db; dbname=dvdcollection', 'root', 'password');
-
-$db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-
-$productModel = new ProductModel($db);
 
 $product = $productModel->getAllDvds();
 
 $viewHelper = new ProductViewHelper();
 echo $viewHelper->displayAllProducts($product);
-
-echo "hello";
-
-//echo ProductViewHelper::displayAllProducts($product);
-
-// echo '<pre>';
-// var_dump($product);
+?>
