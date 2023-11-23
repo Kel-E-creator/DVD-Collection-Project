@@ -73,7 +73,7 @@ class ProductModel
     }
 
 
-    public function addDvd($title, $description, $run_time, $genre, $starring, $image)
+    public function addDvd($title, $description, $run_time, $genre, $actor_id, $image)
     {
         $query = $this->db->prepare('INSERT INTO `dvd`
                 (`title`, `description`, `run_time`, `genre_id`, `image`)
@@ -85,34 +85,22 @@ class ProductModel
         $query->bindParam(':run_time', $run_time);
         $query->bindParam(':genre_id', $genre);
         $query->bindParam(':image', $image);
-
+        
         $query->execute();
 
-    }
-}
+        $dvd_id = $this->db->lastInsertId();
 
-
-//    // $query = $this->db->prepare('INSERT INTO `actors'
-//                 (`name` || `id`)
-//                 VALUES (:name, :id);
-//         );
-
-//         $query->execute();
-
-//         $query->bindParam(':name', $starring);
-//         $query->bindParam(':starring', $starring);
-//     };
-
-
-//     $query = $this->db->prepare('INSERT INTO `starring'
-//                 (`dvd_id` || `id`)
-//                 VALUES (:dvd_id, :actor_id);
-//         );
-
-//         $query->execute();
-
-//         $query->bindParam(':dvd_id', $dvd_id);
-//         $query->bindParam(':actor_id', $actor_id);
-//     };
+        $query = $this->db->prepare('INSERT INTO `starring`
+                (`actor_id`, `dvd_id`)
+                VALUES (:actor_id, :dvd_id);'
+        );        
     
-//}
+        $query->bindParam(':dvd_id', $dvd_id);
+        $query->bindParam(':actor_id', $actor_id);
+        
+        
+        $success=$query->execute();
+
+        return($success);  
+}
+}

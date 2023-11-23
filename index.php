@@ -1,5 +1,7 @@
 <?php
 
+use PhpParser\Node\Stmt\Echo_;
+
 require_once 'src/ProductModel.php';
 require_once 'src/ProductViewHelper.php';
 
@@ -9,40 +11,42 @@ $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 
 $productModel = new ProductModel($db);
 
-var_dump($_POST) ;
+//var_dump($_POST) ;
 
 if (
     isset($_POST['title']) &&
     isset($_POST['description']) &&
     isset($_POST['run_time']) &&
+    isset($_POST['image']) &&
     isset($_POST['genre']) &&
-    isset($_POST['starring']) &&
-    isset($_POST['image']) 
-) {
+    isset($_POST['starring'])
+  ) 
+  {
     $title = $_POST['title'];
     $description = $_POST['description'];
     $run_time = $_POST['run_time'];
+    $image = $_POST['image'];
     $genre = $_POST['genre'];
     $starring = $_POST['starring'];
-    $image = $_POST['image'];
+  
 
-    echo $title;
-    echo $description;
-    echo $run_time;
-    echo $genre;
-    echo $starring;
-    echo $image;
-
-    $success = $productModel->addDvd($title, $description, $run_time, $genre, $starring, $image);
-
-    if ($success) {
-        echo "Dvd added!";
-    } 
-    else {
-        return "All fields not correctly filled in, please try again";
-    }
-}
-
+        if (strlen($title) == 0 || strlen($title) <1) {
+            echo "Please enter a valid dvd title of at least 2 characters";
+        } if (strlen($description) == 0 || strlen($description) < 20) {
+            echo "Please enter a valid dvd description of at least 20 characters";
+        } if (is_int($run_time) == false) {
+            echo "Please enter a valid number";
+        } if (intval($genre) == 0 || intval($genre) > 5) {
+            echo "Please choose a genre from the drop down menu";
+        } if (intval($starring) == 0 || intval($starring) > 9) {
+            echo "Please either choose an actor from the drop down menu or add a new actor";
+        } if (strlen($image) == 0 || strlen($image) <10) {
+            echo "Please add a valid URL address";  
+        } else {
+        $success = $productModel->addDvd($title, $description, $run_time, $genre, $starring, $image);
+    }       
+  }
+    //$title, $description, $run_time, $genre, $starring, $image
 ?>
 
 
@@ -52,11 +56,12 @@ if (
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel=“stylesheet” href=“style.css”>
     <title>DVD Collection</title>
 </head>
 <body>
     <h1>DVD Collection</h1>
-    <form method="POST">
+    <form class="formContainer" method="POST">
         <label for="title">Title:</label>
         <input type="text" id="title" name="title" />
 
@@ -65,6 +70,9 @@ if (
 
         <label for="run_time">Run Time:</label>
         <input type="number" id="run_time" name="run_time" />
+
+        <label for="image">Image:</label>
+        <input type="text" id="image" name="image" />
 
         <label for="genre">Genre:</label>
         <select name="genre" id="genre">
@@ -90,16 +98,13 @@ if (
                 <option value=7>Dolph Lungren</option>
                 <option value=8>Courtney Cox</option>
 
-        </select>
-        <label for="starring">If your actor/actress doesnt appear in the list above please add them here:</label>
-        <input type="starring" id="starring" name="starring" />
-
-
-        <label for="image">Image:</label>
-        <input type="text" id="image" name="image" />
-
         <input type="submit" value="Add DVD" />
 
+        <?php
+        if (isset($success)) {
+        echo "Dvd added!";
+        }    
+        ?>
 
     </form>
     
