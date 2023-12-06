@@ -18,6 +18,9 @@ On the website users can:
 * Kellie Marsh - @ Kel-E-Creator
 
 ## Installation
-1. 
-2. 
-3.
+1. Clone this repo into your folder of choice using 'git clone'
+2. In the terminal cd into the file
+3. Run npm install to install React and all of its depenencies
+4. Run code . to open the file in Visual Studio Code
+5. Run npm run dev to get the application to run in the web browser
+
