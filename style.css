@@ -1,0 +1,434 @@
+body {
+    background-color: white;
+    background-image: url("https://img.freepik.com/free-vector/background-vintage-striped-room_1048-3722.jpg?w=740&t=st=1700827821~exp=1700828421~hmac=59fdf1aef3cbada7530cbca84a7c723b83e9a4505bbe23f0d20a16e7a0371467");
+        /* "https://img.freepik.com/free-vector/classic-vintage-rays-sunburst-retro-background_1017-33769.jpg?size=626&ext=jpg&ga=GA1.1.1459170773.1697535557&semt=ais"); */
+    /* background-repeat:no-repeat; */
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    margin:0;
+    padding:0;
+    width: 100%;
+    height:100%;
+    box-sizing: border-box;
+}
+
+.filmstrip {
+    --background: rgba(114, 57, 11, 0.8);
+    --size: 10px;
+    background-image:
+        linear-gradient(to right, var(--background) var(--size), transparent var(--size)),
+        linear-gradient(to bottom, var(--background) var(--size), transparent var(--size)),
+        linear-gradient(to right, var(--background) var(--size), transparent var(--size)),
+        linear-gradient(to bottom, var(--background) var(--size), transparent var(--size)),
+        linear-gradient(to bottom, transparent var(--size), var(--background) var(--size));
+    background-size: calc(var(--size) * 2) var(--size), calc(var(--size) * 2) var(--size), calc(var(--size) * 2) var(--size), calc(var(--size) * 2) var(--size), 100% calc(100% - var(--size) * 3);
+    background-repeat: repeat-x;
+    background-position: 0 var(--size), top left, 0 calc(100% - var(--size)), bottom left, 0 var(--size);
+    padding: calc(var(--size) * 5) calc(var(--size) * 2.5);
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Adjust the gap as needed */
+    align-items: center; /* Vertically center align items */
+    width: 100%;
+    justify-content: space-between;
+}
+
+.filmstrip2 {
+    --background: rgba(114, 57, 11, 0.8);
+    --size: 10px;
+    background-image:
+        linear-gradient(to right, var(--background) var(--size), transparent var(--size)),
+        linear-gradient(to bottom, var(--background) var(--size), transparent var(--size)),
+        linear-gradient(to right, var(--background) var(--size), transparent var(--size)),
+        linear-gradient(to bottom, var(--background) var(--size), transparent var(--size)),
+        linear-gradient(to bottom, transparent var(--size), var(--background) var(--size));
+    background-size: calc(var(--size) * 2) var(--size), calc(var(--size) * 2) var(--size), calc(var(--size) * 2) var(--size), calc(var(--size) * 2) var(--size), 100% calc(100% - var(--size) * 3);
+    background-repeat: repeat-x;
+    background-position: 0 var(--size), top left, 0 calc(100% - var(--size)), bottom left, 0 var(--size);
+    padding: calc(var(--size) * 5) calc(var(--size) * 2.5);
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Adjust the gap as needed */
+    align-items: center; /* Vertically center align items */
+    width: 100%;
+}
+
+    .filmstrip3 {
+        --background: rgba(0, 0, 0, 0.8);
+        --size: 10px;
+        background-image:
+            linear-gradient(to right, var(--background) var(--size), transparent var(--size)),
+            linear-gradient(to bottom, var(--background) var(--size), transparent var(--size)),
+            linear-gradient(to right, var(--background) var(--size), transparent var(--size)),
+            linear-gradient(to bottom, var(--background) var(--size), transparent var(--size)),
+            linear-gradient(to bottom, transparent var(--size), var(--background) var(--size));
+        background-size: calc(var(--size) * 2) var(--size), calc(var(--size) * 2) var(--size), calc(var(--size) * 2) var(--size), calc(var(--size) * 2) var(--size), 100% calc(100% - var(--size) * 3);
+        background-repeat: repeat-x;
+        background-position: 0 var(--size), top left, 0 calc(100% - var(--size)), bottom left, 0 var(--size);
+        padding: calc(var(--size) * 5) calc(var(--size) * 2.5);
+        box-sizing: border-box;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px; /* Adjust the gap as needed */
+        align-items: center; /* Vertically center align items */
+        width: 100%;
+}
+
+
+
+form {
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px; /* Adjust the gap between form elements as needed */
+    font-family: "Poiret One", sans-serif;
+    font-size: 16px; /* Add your desired font size */
+    color: #fff; /* Add your desired font color */
+}
+
+form label {
+    font-family: "Poiret One", sans-serif;
+    font-size: 18px; /* Add your desired font size */
+    color: #fff; /* Add your desired font color */
+    font-weight: bold;
+}
+
+form select, form input[type="submit"], form input[type="text"], form button {
+    font-family: "Poiret One", sans-serif;
+    font-weight: bold;
+    font-size: 16px; /* Add your desired font size */
+    color: #000; /* Add your desired font color */
+}
+
+form input[type="submit"]:hover, form button:hover {
+    background-color: #fbcb3e; /* Add hover effect */
+}
+
+.poiret-one-regular {
+    font-family: "Poiret One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  .monoton-regular {
+    font-family: "Monoton", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .righteous-regular {
+    font-family: "Righteous", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+.search_container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.filter_container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    width:100%
+}
+
+h1 {
+    color:  #1698A1;
+    font-family: "Righteous", sans-serif;
+    font-size: 80px;
+    text-shadow:   
+        -2px -2px 0  #72390b,
+        2px -2px 0 #72390b,
+        -2px  2px 0 #72390b,
+        2px  2px 0 #72390b;
+        margin: 30px;
+}
+
+h2 {
+    color: #1698A1;
+    font-family: "Righteous", sans-serif;
+    font-style: normal;
+}
+
+h3 {
+    color: white;
+    font-family: "Righteous", sans-serif;
+    font-style: normal;
+}
+
+p {
+    font-family: "Poiret One", sans-serif;
+    font-weight: bold;
+}
+
+span {
+    font-family: "Poiret One", sans-serif;
+    font-weight: bold;
+}
+
+
+img {
+    display: block;
+    width: 70%;
+    margin-left:auto;
+    margin-right: auto;
+}
+
+.dvds {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 500px;
+}
+
+.dvd {
+    border: 20px solid black;
+    margin: 20px;
+    width: 300px;
+    padding: 20px;
+    background:white;
+}
+
+.success-message {
+    display:none;
+}
+
+.runtime {
+    display: flex;
+    gap: 5px;
+}
+
+.runtime span {
+    white-space: nowrap;
+}
+
+#run_time {
+    width: 70px;
+    height: 20px;
+}
+
+#run_time_mins {
+    width: 70px;
+    height: 20px;
+}
+
+#year {
+    width: 70px;
+    height: 20px;
+}
+
+#toggle-filters {
+    display: block;
+}
+
+#toggle-add-dvd {
+    display: block;
+}
+
+#add-dvd-section {
+    display: none;
+}
+.toggle-section {
+    margin-top: 10px;
+}
+
+#toggle-add-dvd {
+    display: block;
+}
+
+#filters-section {
+    display: none;
+}
+
+#toggle-filters {
+    display: block;
+}
+
+#back-to-top {
+        display: none; /* Hidden by default */
+        position: fixed; /* Fixed/sticky position */
+        bottom: 20px; /* Place the button at the bottom of the page */
+        right: 30px; /* Place the button 30px from the right */
+        z-index: 99; /* Make sure it does not overlap */
+        border: none; /* Remove borders */
+        outline: none; /* Remove outline */
+        background-color: #1698A1; /* Set a background color */
+        color: white; /* Text color */
+        cursor: pointer; /* Add a mouse pointer on hover */
+        padding: 15px; /* Some padding */
+        border-radius: 10px; /* Rounded corners */
+        font-size: 18px; /* Increase font size */
+    }
+
+#back-to-top:hover {
+    background-color: #000; /* Add a dark-grey background on hover */
+}
+
+
+@media screen and (max-width: 480px) {
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0 10px;
+    }
+ 
+ 
+
+    h1 {
+        font-size: 50px;
+        text-align: center;
+    }
+
+    .dvds {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+        gap: 20px;
+    }
+
+    .dvd {
+        border: 20px solid black;
+        width:90%;
+        max-width: 380px;
+        margin: 10px 0 auto;
+        padding: 20px;
+        background:white;
+    }
+
+    .filmstrip3, form {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .filmstrip2, .form-header {
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+
+    
+       /* Add New DVD section adjustments */
+       form {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+    }
+    
+    form label, form select, form input[type="submit"], form input[type="text"], form button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    
+    form .runtime {
+        flex-direction: column;
+    }
+
+    #run_time {
+        width: 100%;
+    }
+    
+    #run_time_mins {
+        width: 100%;
+    }
+    
+    #year {
+        width: 100%;
+    
+    }
+        #filters-section,
+        #add-dvd-section {
+            display: none;
+        }
+        .toggle-section {
+            margin-top: 10px;
+        }
+        #toggle-filters,#toggle-add-dvd {
+            display: block;
+        }
+}
+
+    
+@media (min-width: 481px) and (max-width: 769px) {
+    html {
+        width: 1000px;
+    }
+
+    .filmstrip {
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+    }
+
+    .search_form {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .search_form input {
+        flex: 1;
+        margin-left: 10px;
+    }
+
+    
+    .dvds {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        width: 250px;
+    }
+
+    .dvd {
+        border: 15px solid black;
+        margin: 20px;
+        width: 250px;
+        padding: 20px;
+        background:white;
+        margin: 10px;
+    }
+}
+
+
+@media (min-width: 770px) and (max-width: 1300px) {
+    html {
+        width: 1220px;
+    }
+    
+    .dvds {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        width: 500px;
+    }
+    }
+
+
+@media (min-width: 1300px) and (max-width: 1570px) {
+
+.dvds {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 200px;
+}
+
+.dvd {
+    border: 15px solid black;
+    margin: 20px;
+    width: 300px;
+    padding: 20px;
+    background:white;
+}
+    }
